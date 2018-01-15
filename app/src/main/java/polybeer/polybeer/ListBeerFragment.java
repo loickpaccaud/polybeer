@@ -57,40 +57,40 @@ public class ListBeerFragment extends Fragment {
                 try{
                     for(int i=0 ; i<response.length(); i++){
                         JSONObject jsonObject = response.getJSONObject(i);
-                        int id = jsonObject.getInt("id");
-                        String name = jsonObject.getString("name");
-                        String tagline = jsonObject.getString("tagline");
-                        String first_brewed = jsonObject.getString("first_brewed");
-                        String description = jsonObject.getString("description");
-                        String image_url = jsonObject.getString("image_url");
-                        Double abv = jsonObject.getDouble("abv");
-                        Double ibu = jsonObject.getDouble("ibu");
-                        Double target_fg = jsonObject.getDouble("target_fg");
-                        Double target_og = jsonObject.getDouble("target_og");
-                        Double ebc = jsonObject.getDouble("ebc");
-                        Double srm = jsonObject.getDouble("srm");
-                        Double ph = jsonObject.getDouble("ph");
-                        Double attenuation_level = jsonObject.getDouble("attenuation_level");
+                        int id = jsonObject.optInt("id");
+                        String name = jsonObject.optString("name");
+                        String tagline = jsonObject.optString("tagline");
+                        String first_brewed = jsonObject.optString("first_brewed");
+                        String description = jsonObject.optString("description");
+                        String image_url = jsonObject.optString("image_url");
+                        Double abv = jsonObject.optDouble("abv");
+                        Double ibu = jsonObject.optDouble("ibu");
+                        Double target_fg = jsonObject.optDouble("target_fg");
+                        Double target_og = jsonObject.optDouble("target_og");
+                        Double ebc = jsonObject.optDouble("ebc");
+                        Double srm = jsonObject.optDouble("srm");
+                        Double ph = jsonObject.optDouble("ph");
+                        Double attenuation_level = jsonObject.optDouble("attenuation_level");
 
                         JSONArray jsonIngredientMalt = jsonObject.getJSONObject("ingredients").getJSONArray("malt");
                         String ingedients_malt = new String("");
                         for(int k=0 ; k<jsonIngredientMalt.length(); k++) {
-                            ingedients_malt += jsonIngredientMalt.getJSONObject(k).getString("name") + "\n";
+                            ingedients_malt += jsonIngredientMalt.getJSONObject(k).optString("name") + "\n";
                         }
                         ingedients_malt = ingedients_malt.substring(0, ingedients_malt.length()-2);
 
                         JSONArray jsonIngredientHops = jsonObject.getJSONObject("ingredients").getJSONArray("hops");
                         String ingedients_hops = new String("");
                         for(int k=0 ; k<jsonIngredientHops.length(); k++) {
-                            ingedients_hops += jsonIngredientHops.getJSONObject(k).getString("name") + "\n";
+                            ingedients_hops += jsonIngredientHops.getJSONObject(k).optString("name") + "\n";
                         }
                         ingedients_hops = ingedients_hops.substring(0, ingedients_hops.length()-2);
 
-                        String ingedients_yeast = jsonObject.getJSONObject("ingredients").getString("yeast");
-                        String brewers_tips = jsonObject.getString("brewers_tips");
-                        String contibutor = jsonObject.getString("contibutor");
+                        String ingedients_yeast = jsonObject.getJSONObject("ingredients").optString("yeast");
+                        String brewers_tips = jsonObject.optString("brewers_tips");
+                        String contributor = jsonObject.optString("contributed_by");
 
-                        beerList.add(new Beer(id,name,tagline,first_brewed,description,image_url,abv,ibu,target_fg,target_og,ebc,srm,ph,attenuation_level,ingedients_malt,ingedients_hops,ingedients_yeast,brewers_tips,contibutor));
+                        beerList.add(new Beer(id,name,tagline,first_brewed,description,image_url,abv,ibu,target_fg,target_og,ebc,srm,ph,attenuation_level,ingedients_malt,ingedients_hops,ingedients_yeast,brewers_tips,contributor));
                     }
                 }
                 catch(JSONException e){
