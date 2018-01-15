@@ -72,21 +72,21 @@ public class ListBeerFragment extends Fragment {
                         Double ph = jsonObject.getDouble("ph");
                         Double attenuation_level = jsonObject.getDouble("attenuation_level");
 
-                        JSONArray jsonIngredientMalt = jsonObject.getJSONObject("ingredient").getJSONArray("malt");
+                        JSONArray jsonIngredientMalt = jsonObject.getJSONObject("ingredients").getJSONArray("malt");
                         String ingedients_malt = new String("");
                         for(int k=0 ; k<jsonIngredientMalt.length(); k++) {
                             ingedients_malt += jsonIngredientMalt.getJSONObject(k).getString("name") + "\n";
                         }
                         ingedients_malt = ingedients_malt.substring(0, ingedients_malt.length()-2);
 
-                        JSONArray jsonIngredientHops = jsonObject.getJSONObject("ingredient").getJSONArray("hops");
+                        JSONArray jsonIngredientHops = jsonObject.getJSONObject("ingredients").getJSONArray("hops");
                         String ingedients_hops = new String("");
                         for(int k=0 ; k<jsonIngredientHops.length(); k++) {
                             ingedients_hops += jsonIngredientHops.getJSONObject(k).getString("name") + "\n";
                         }
                         ingedients_hops = ingedients_hops.substring(0, ingedients_hops.length()-2);
 
-                        String ingedients_yeast = jsonObject.getString("ingedients_yeast");
+                        String ingedients_yeast = jsonObject.getJSONObject("ingredients").getString("yeast");
                         String brewers_tips = jsonObject.getString("brewers_tips");
                         String contibutor = jsonObject.getString("contibutor");
 
