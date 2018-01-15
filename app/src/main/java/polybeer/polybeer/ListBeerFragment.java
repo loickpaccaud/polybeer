@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonArrayRequest;
@@ -20,11 +21,22 @@ import polybeer.polybeer.Object.Beer;
 
 public class ListBeerFragment extends Fragment{
 
+    private ListView listView;
     private List<Beer> beerList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.activity_main, container, false);
+        return inflater.inflate(R.layout.list_beer_activity, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        beerList = new ArrayList<Beer>();
+        this.listView = (ListView) getActivity().findViewById(R.id.beerList);
+
+        listBeer();
     }
 
     private void listBeer(){
