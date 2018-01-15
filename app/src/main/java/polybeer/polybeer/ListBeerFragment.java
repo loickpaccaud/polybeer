@@ -49,7 +49,6 @@ public class ListBeerFragment extends Fragment {
         final Context context = getActivity().getApplicationContext();
         RequestQueue queue = Volley.newRequestQueue(context);
         final Beer beer = new Beer();
-        beerList = new ArrayList<>();
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest (api_url, new Response.Listener<JSONArray>() {
 

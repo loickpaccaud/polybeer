@@ -9,8 +9,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.list_beer_activity);
+                super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         listView = (ListView) findViewById(R.id.beerList);
 
         if(listView != null){
