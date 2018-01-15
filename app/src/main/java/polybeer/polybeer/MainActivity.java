@@ -1,6 +1,5 @@
 package polybeer.polybeer;
 
-import android.support.v4.app.ListFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
@@ -20,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        ListFragment listFragment = new ListFragment();
+        ListBeerFragment listBeerFragment = new ListBeerFragment();
 
-       getSupportFragmentManager().beginTransaction().add(R.id.mainFragment,listFragment).commit();
+       getSupportFragmentManager().beginTransaction().add(R.id.mainFragment,listBeerFragment).commit();
 
     }
 }

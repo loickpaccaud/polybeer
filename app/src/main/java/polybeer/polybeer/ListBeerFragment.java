@@ -1,14 +1,17 @@
 package polybeer.polybeer;
 
-import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,10 +22,12 @@ import java.util.List;
 
 import polybeer.polybeer.Object.Beer;
 
-public class ListBeerFragment extends Fragment{
+public class ListBeerFragment extends Fragment {
 
     private ListView listView;
     private List<Beer> beerList;
+
+    private BeerAdapter beerAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,6 +46,8 @@ public class ListBeerFragment extends Fragment{
 
     private void listBeer(){
         final String api_url = "https://api.punkapi.com/v2/beers";
+        final Context context = getActivity().getApplicationContext();
+        RequestQueue queue = Volley.newRequestQueue(context);
         final Beer beer = new Beer();
         beerList = new ArrayList<>();
 
@@ -91,8 +98,13 @@ public class ListBeerFragment extends Fragment{
                     e.printStackTrace();
                     beerList.add(beer);
                 }
+
+                beerAdapter = new BeerAdapter(context, beerList);
+                listView.setAdapter(beerAdapter);
+
             }
         }, null);
+        queue.add(jsonArrayRequest);
     }
 }
 
