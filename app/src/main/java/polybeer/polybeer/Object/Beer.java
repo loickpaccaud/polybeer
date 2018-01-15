@@ -11,14 +11,14 @@ public class Beer {
     private String first_brewed;
     private String description;
     private String image_url;
-    private Float abv;
-    private Float ibu;
-    private Float target_fg;
-    private Float target_og;
-    private Float ebc;
-    private Float srm;
-    private Float ph;
-    private Float attenuation_level;
+    private Double abv;
+    private Double ibu;
+    private Double target_fg;
+    private Double target_og;
+    private Double ebc;
+    private Double srm;
+    private Double ph;
+    private Double attenuation_level;
     private Integer volume;
     private Integer boil_volume;
     private Integer mash_temperature;
@@ -32,7 +32,7 @@ public class Beer {
     private String brewers_tips;
     private String contibutor;
 
-    public Beer(Integer id, String name, String tagline, String first_brewed, String description, String image_url, Float abv, Float ibu, Float target_fg, Float target_og, Float ebc, Float srm, Float ph, Float attenuation_level, Integer volume, Integer boil_volume, Integer mash_temperature, Integer mash_duration, Integer ferm_temperature, String twist, String ingedients_malt, String ingedients_hops, String ingedients_yeast, String food_pairing, String brewers_tips, String contibutor) {
+    public Beer(Integer id, String name, String tagline, String first_brewed, String description, String image_url, Double abv, Double ibu, Double target_fg, Double target_og, Double ebc, Double srm, Double ph, Double attenuation_level, Integer volume, Integer boil_volume, Integer mash_temperature, Integer mash_duration, Integer ferm_temperature, String twist, String ingedients_malt, String ingedients_hops, String ingedients_yeast, String food_pairing, String brewers_tips, String contibutor) {
         this.id = id;
         this.name = name;
         this.tagline = tagline;
@@ -59,5 +59,9 @@ public class Beer {
         this.food_pairing = food_pairing;
         this.brewers_tips = brewers_tips;
         this.contibutor = contibutor;
+    }
+
+    public Beer(){
+
     }
 }
