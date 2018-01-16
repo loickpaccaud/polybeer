@@ -1,6 +1,8 @@
 package polybeer.polybeer.Object;
 
-public class Beer {
+import java.io.Serializable;
+
+public class Beer implements Serializable{
     private Integer id;
     private String name;
     private String tagline;

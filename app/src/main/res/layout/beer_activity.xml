@@ -24,12 +24,12 @@
         tools:text="beerName" />
 
     <TextView
-        android:id="@+id/beerDescription"
+        android:id="@+id/beerTagline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
         android:layout_marginLeft="10dp"
-        tools:text="Description of the beer"
+        tools:text="Tagline of the beer"
         android:layout_alignBottom="@+id/beerImage"
         android:layout_toEndOf="@+id/beerImage" />
 

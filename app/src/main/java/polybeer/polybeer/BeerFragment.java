@@ -16,14 +16,14 @@ public class BeerFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.beer_activity, container, false);
+        return inflater.inflate(R.layout.beer_details_activity, container, false);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Beer beer = new Beer();
-        beer(beer);
+        Bundle bundle = getArguments();
+        beer((Beer) bundle.getSerializable("beer"));
     }
 
     public void beer(Beer beer){
@@ -33,5 +33,6 @@ public class BeerFragment extends Fragment {
         ((TextView) getActivity().findViewById(R.id.beerNameDetails)).setText(beer.getName());
         ((TextView) getActivity().findViewById(R.id.beerTaglineDetails)).setText(beer.getTagline());
         ((TextView) getActivity().findViewById(R.id.beerDescriptionDetails)).setText(beer.getDescription());
+        ((TextView) getActivity().findViewById(R.id.beerBrewersTipsDetails)).setText(beer.getBrewers_tips());
     }
 }

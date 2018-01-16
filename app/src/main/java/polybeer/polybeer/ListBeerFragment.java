@@ -3,9 +3,11 @@ package polybeer.polybeer;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.android.volley.RequestQueue;
@@ -42,6 +44,23 @@ public class ListBeerFragment extends Fragment {
         this.listView = (ListView) getActivity().findViewById(R.id.beerList);
 
         listBeer();
+
+        this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                BeerFragment beerFragment = new BeerFragment();
+
+                Bundle bundle = new Bundle();
+                Beer beer = beerList.get(position);
+                bundle.putSerializable("beer", beer);
+                beerFragment.setArguments(bundle);
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.mainFragment, beerFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
     }
 
     private void listBeer(){

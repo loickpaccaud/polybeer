@@ -34,7 +34,7 @@ public class BeerAdapter extends ArrayAdapter<Beer>{
 
             viewHolder.imageView = (ImageView) convertView.findViewById(R.id.beerImage);
             viewHolder.textView_name = (TextView) convertView.findViewById(R.id.beerName);
-            viewHolder.textView_description = (TextView) convertView.findViewById(R.id.beerDescription);
+            viewHolder.textView_tagline = (TextView) convertView.findViewById(R.id.beerTagline);
             convertView.setTag(viewHolder);
         }
 
@@ -43,7 +43,7 @@ public class BeerAdapter extends ArrayAdapter<Beer>{
         //Picasso pour afficher directement l'image depuis l'url
         Picasso.with(getContext()).load(beer.getImage_url()).into(viewHolder.imageView);
         viewHolder.textView_name.setText(beer.getName());
-        viewHolder.textView_description.setText(beer.getTagline());
+        viewHolder.textView_tagline.setText(beer.getTagline());
 
         return convertView;
     }
@@ -51,7 +51,7 @@ public class BeerAdapter extends ArrayAdapter<Beer>{
     private class ViewHolder{
         public ImageView imageView;
         public TextView textView_name;
-        public TextView textView_description;
+        public TextView textView_tagline;
     }
 
 }
