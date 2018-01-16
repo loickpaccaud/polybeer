@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
-    tools:context="polybeer.polybeer.BeerFragment">
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/beerImage"
@@ -22,15 +21,16 @@
         android:layout_toRightOf="@+id/beerImage"
         android:layout_alignTop="@+id/beerImage"
         android:textStyle="bold"
-        tools:text="beerImage" />
+        tools:text="beerName" />
 
     <TextView
         android:id="@+id/beerDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@android:color/black"
-        android:layout_alignLeft="@+id/beerImage"
-        android:layout_below="@+id/beerImage"
-        tools:text="Description of the beer" />
+        android:layout_marginLeft="10dp"
+        tools:text="Description of the beer"
+        android:layout_alignBottom="@+id/beerImage"
+        android:layout_toEndOf="@+id/beerImage" />
 
 </RelativeLayout>
